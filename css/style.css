@@ -1,0 +1,208 @@
+
+            body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            /* Warna latar belakang halaman sedikit abu-abu */
+            color: #343a40;
+            /* Warna teks utama sedikit lebih gelap */
+            padding: 20px;
+            max-width: 650px;
+            /* Batasi lebar konten agar tidak terlalu lebar di layar besar */
+            margin: 20px auto;
+            /* Pusatkan konten di halaman */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            /* Tambahkan sedikit bayangan */
+            border-radius: 8px;
+            /* Sudut sedikit melengkung */
+            background-color: #ffffff;
+            /* Latar belakang area konten putih */
+        }
+
+        h1 {
+            color: #0056b3;
+            /* Warna biru untuk judul utama */
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #dee2e6;
+            /* Garis bawah tipis */
+            padding-bottom: 10px;
+        }
+
+        p {
+            color: #6c757d;
+            /* Warna abu-abu untuk teks deskripsi */
+            margin-bottom: 20px;
+            text-align: center;
+            /* Pusatkan teks intro */
+        }
+
+        label {
+            display: block;
+            /* Label di atas input */
+            margin-bottom: 6px;
+            /* Jarak antara label dan input */
+            font-weight: 600;
+            /* Sedikit lebih tebal */
+            color: #495057;
+        }
+
+        /* Styling untuk semua jenis input teks */
+        input[type="url"],
+        input[type="text"],
+        input[type="password"] {
+            display: block;
+            /* Input mengambil lebar penuh */
+            width: 95%;
+            /* Sedikit kurang dari 100% untuk padding */
+            padding: 12px 15px;
+            /* Padding di dalam input */
+            margin-bottom: 18px;
+            /* Jarak di bawah setiap input */
+            border: 1px solid #ced4da;
+            /* Border abu-abu */
+            border-radius: 4px;
+            /* Sudut input melengkung */
+            font-size: 1rem;
+            /* Ukuran font standar */
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            /* Transisi halus saat focus */
+        }
+
+        /* Efek saat input di-klik (focus) */
+        input[type="url"]:focus,
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #80bdff;
+            /* Border biru saat focus */
+            outline: 0;
+            /* Hilangkan outline default */
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            /* Bayangan biru lembut saat focus */
+        }
+
+        button {
+            display: block;
+            /* Tombol mengambil lebar penuh */
+            width: 100%;
+            /* Lebar penuh */
+            padding: 12px 20px;
+            background-color: #007bff;
+            /* Warna biru utama */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            /* Tanda cursor tangan */
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            /* Teks huruf besar */
+            letter-spacing: 0.5px;
+            /* Sedikit jarak antar huruf */
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            /* Transisi halus */
+            margin-top: 25px;
+            /* Jarak di atas tombol */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            /* Warna biru lebih gelap saat hover */
+        }
+
+        button:active {
+            transform: scale(0.98);
+            /* Efek sedikit mengecil saat diklik */
+        }
+
+        /* Area hasil */
+        #result {
+            margin-top: 30px;
+            background-color: #e9ecef;
+            /* Latar belakang abu-abu muda untuk hasil */
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+            display: none;
+            /* Tetap tersembunyi secara default */
+            word-wrap: break-word;
+            /* Pastikan URL panjang tidak merusak layout */
+        }
+
+        #result h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: #495057;
+        }
+
+        /* Styling untuk preview URL pendek */
+        #shortUrlPreview {
+            font-family: 'Courier New', Courier, monospace;
+            /* Font Monospace untuk URL */
+            background-color: #f8f9fa;
+            padding: 3px 6px;
+            border-radius: 3px;
+            border: 1px dashed #adb5bd;
+            /* Border putus-putus */
+            display: inline-block;
+            /* Agar background tidak full width */
+        }
+
+        /* Styling untuk pesan respons dari server */
+        #server-response {
+            margin-top: 15px;
+            padding: 12px 15px;
+            /* Padding lebih besar */
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.95rem;
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        /* Kelas untuk pesan sukses */
+        .success {
+            color: #155724;
+            /* Teks hijau tua */
+            background-color: #d4edda;
+            /* Latar hijau muda */
+            border-color: #c3e6cb;
+            /* Border hijau */
+        }
+
+        /* Kelas untuk pesan error */
+        .error {
+            color: #721c24;
+            /* Teks merah tua */
+            background-color: #f8d7da;
+            /* Latar merah muda */
+            border-color: #f5c6cb;
+            /* Border merah */
+        }
+
+        input[type="password"] {
+            width: 90%;
+            max-width: 400px;
+            padding: 8px;
+        }
+
+        #result {
+            /* ... */
+        }
+
+        #server-response {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+    

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mengalihkan...</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; text-align: center; }
+        .error { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <p id="message">Mencari tautan pendek...</p>
+
+    <script>
+        (function() {
+            const messageElement = document.getElementById('message');
+            // !!! GANTI DENGAN URL WEB APP ANDA !!!
+            const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzaQa_lbxl86f7n4h8QHcbHQ5CSrP0scgYfDaK1eKxw9jNdbKT4YR-FsqInzDI7-FqI/exec";
+            // !!! GANTI REPO_NAME !!! (atau '/' jika menggunakan root domain)
+            const repoBasePath = "/#/";
+
+            const requestedPath = window.location.pathname;
+            let shortCode = '';
+
+            if (requestedPath.startsWith(repoBasePath) && requestedPath.length > repoBasePath.length) {
+                shortCode = requestedPath.substring(repoBasePath.length);
+                if (shortCode.endsWith('/')) {
+                    shortCode = shortCode.slice(0, -1);
+                }
+            }
+
+            console.log("Path diminta:", requestedPath);
+            console.log("Kode pendek terdeteksi:", shortCode);
+
+            if (!shortCode) {
+                messageElement.textContent = 'Kode pendek tidak ditemukan di URL.';
+                return;
+            }
+
+            // Panggil Google Apps Script Web App (GET)
+            const fetchUrl = `${WEB_APP_URL}?code=${encodeURIComponent(shortCode)}`;
+            console.log("Fetching:", fetchUrl);
+
+            fetch(fetchUrl)
+                .then(response => response.json()) // Harapkan respons JSON dari Apps Script
+                .then(data => {
+                    console.log("Respons dari Apps Script:", data);
+                    if (data && data.status === "success" && data.url) {
+                        messageElement.textContent = `Mengalihkan ke: ${data.url}`;
+                        console.log(`Mengalihkan ${shortCode} ke ${data.url}`);
+                        window.location.replace(data.url); // Lakukan pengalihan
+                    } else if (data && data.status === "not_found") {
+                        messageElement.textContent = `Kode pendek "${shortCode}" tidak ditemukan.`;
+                        messageElement.classList.add('error');
+                        console.warn(`Kode pendek "${shortCode}" tidak ada di Google Sheet.`);
+                    } else {
+                       throw new Error(data.message || 'Respons tidak valid dari server.');
+                    }
+                })
+                .catch(error => {
+                    messageElement.textContent = `Terjadi kesalahan: ${error.message}`;
+                    messageElement.classList.add('error');
+                    console.error("Error saat menghubungi Apps Script:", error);
+                });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShortenerLink</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1>Pembuat Tautan Pendek</h1>
+    <p>Masukkan URL panjang</p>
+
+    <label for="longUrl">URL Panjang:</label>
+    <input type="url" id="longUrl" placeholder="https://contoh-url-panjang-anda.com/..." required>
+
+    <label for="shortCode">Kode Pendek (opsional, biarkan kosong untuk acak):</label>
+    <input type="text" id="shortCode" placeholder="mis: blog-baru">
+
+    <label for="secretKey">Kunci Rahasia:</label>
+    <input type="password" id="secretKey" required placeholder="Masukkan kunci (Edy)">
+
+    <button onclick="addLink()">Tambahkan Tautan</button>
+
+    <div id="result" style="display: none;">
+        <h2>Hasil Sementara:</h2>
+        <p><strong>Tautan Pendek yang Akan Dibuat:</strong> <span id="shortUrlPreview"></span></p>
+        <div id="server-response"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,8 +1,8 @@
         // !!! GANTI DENGAN URL WEB APP ANDA !!!
         const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzaQa_lbxl86f7n4h8QHcbHQ5CSrP0scgYfDaK1eKxw9jNdbKT4YR-FsqInzDI7-FqI/exec";
         // !!! GANTI USERNAME & REPO_NAME untuk preview URL !!!
-        const githubUsername = "eprmod";
-        const githubRepoName = "com";
+        const githubUsername = "epromod";
+        const githubRepoName = "#";
 
         function generateRandomString(length = 6) {
             const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';

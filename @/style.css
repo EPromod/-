@@ -1,0 +1,131 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    color: #0056b3;
+    text-align: center;
+}
+
+.upload-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Sembunyikan input file asli */
+input[type="file"] {
+    display: none;
+}
+
+/* Styling tombol kustom */
+.file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.file-label:hover {
+    background-color: #0056b3;
+}
+
+.file-name {
+    margin-left: 15px;
+    font-style: italic;
+    color: #555;
+}
+
+.preview-area {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border: 1px dashed #ccc;
+    min-height: 100px;
+    display: flex; /* Menggunakan flexbox untuk tata letak pratinjau */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #666;
+    overflow: hidden; /* Mencegah konten besar meluber */
+}
+
+.preview-area img,
+.preview-area video,
+.preview-area audio {
+    max-width: 100%;
+    max-height: 300px; /* Batasi tinggi pratinjau */
+    margin: auto; /* Pusatkan jika lebih kecil dari kontainer */
+    display: block;
+}
+
+.preview-area p {
+    margin: 0;
+}
+
+
+.status-message {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.link-area {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+    color: #155724;
+    text-align: center;
+}
+
+.link-area h3 {
+    margin-top: 0;
+    color: #0f5132;
+}
+
+.link-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.link-area input[type="text"] {
+    flex-grow: 1; /* Biarkan input mengambil ruang yang tersedia */
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px 0 0 4px; /* Sudut bulat di kiri */
+    background-color: #fff;
+    font-size: 0.9em;
+}
+
+.link-area button {
+    padding: 8px 15px;
+    border: 1px solid #007bff;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0; /* Sudut bulat di kanan */
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Mencegah teks tombol terpotong */
+}
+
+.link-area button:hover {
+    background-color: #0056b3;
+}
+
+.status-uploading { color: #007bff; }
+.status-error { color: #dc3545; }
+.status-success { color: #28a745; } /* Meskipun link area sudah hijau */
